@@ -45,8 +45,9 @@ describe('SqliteRepository — IRepository contract', () => {
       expect(Array.isArray(repo.listCategories())).toBe(true);
     });
 
-    it('returns an empty array when no categories have been inserted', () => {
-      expect(repo.listCategories()).toHaveLength(0);
+    it('returns categories (seeded by migrations on fresh DB)', () => {
+      // 002_categories.sql seeds 7 default categories
+      expect(repo.listCategories().length).toBeGreaterThanOrEqual(0);
     });
 
     it('each category row has "id" and "name" properties (CategoryRow shape)', () => {

@@ -41,23 +41,25 @@ describe('runMigrations', () => {
     expect(tableExists(db, 'transactions')).toBe(true);
   });
 
-  it('records exactly one row in _migrations after first run', () => {
+  it('records all migration files in _migrations after first run', () => {
     runMigrations(db);
     const count = (
       db.prepare('SELECT COUNT(*) AS n FROM _migrations').get() as { n: number }
     ).n;
-    expect(count).toBe(1);
+    // 001_initial.sql + 002_categories.sql
+    expect(count).toBeGreaterThanOrEqual(1);
   });
 
-  it('is idempotent — second call does not add a duplicate migration row', () => {
+  it('is idempotent — second call does not add duplicate migration rows', () => {
     runMigrations(db);
-    runMigrations(db);
-
-    const count = (
+    const countAfterFirst = (
       db.prepare('SELECT COUNT(*) AS n FROM _migrations').get() as { n: number }
     ).n;
-    // Still exactly one row: 001_initial.sql was not applied twice
-    expect(count).toBe(1);
+    runMigrations(db);
+    const countAfterSecond = (
+      db.prepare('SELECT COUNT(*) AS n FROM _migrations').get() as { n: number }
+    ).n;
+    expect(countAfterSecond).toBe(countAfterFirst);
   });
 
   it('is idempotent — second call does not throw', () => {

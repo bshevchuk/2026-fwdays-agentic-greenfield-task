@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { en } from '@/lib/i18n/en';
 
 export function TopBar() {
@@ -8,7 +9,13 @@ export function TopBar() {
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
       >
         <span className="text-lg font-semibold text-foreground">{en.APP_NAME}</span>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
+          <Link
+            href="/settings"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {en.TOP_BAR_SETTINGS}
+          </Link>
           <label htmlFor="display-currency" className="text-sm text-muted-foreground">
             {en.CURRENCY_SELECTOR_LABEL}
           </label>

@@ -1,8 +1,12 @@
-// @trace FR-SHELL-01
-export interface CategoryRow {
-  id: number;
-  name: string;
-}
+// @trace FR-SHELL-01, FR-CAT-01, FR-CAT-02, FR-CAT-03, FR-CAT-04
+import type {
+  CategoryFullRow,
+  CreateCategoryInput,
+  UpdateCategoryInput,
+} from '@/lib/categories/types';
+
+// Re-export for callers that imported CategoryRow by name from here.
+export type { CategoryFullRow };
 
 export interface TransactionRow {
   id: number;
@@ -16,6 +20,11 @@ export interface IRepository {
   // --- Transactions (add-transactions slice will expand this) ---
   countTransactions(): number;
 
-  // --- Categories (add-categories slice will expand this) ---
-  listCategories(): CategoryRow[];
+  // --- Categories ---
+  listCategories(): CategoryFullRow[];
+  getCategory(id: number): CategoryFullRow | undefined;
+  createCategory(input: CreateCategoryInput): CategoryFullRow;
+  updateCategory(id: number, fields: UpdateCategoryInput): CategoryFullRow | undefined;
+  deleteCategory(id: number): boolean;
+  countTransactionsByCategory(categoryId: number): number;
 }
