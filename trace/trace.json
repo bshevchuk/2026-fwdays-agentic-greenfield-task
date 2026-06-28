@@ -61,7 +61,7 @@
       "specs": [
         "openspec/specs/shell/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -70,7 +70,7 @@
       "specs": [
         "openspec/specs/shell/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -79,7 +79,7 @@
       "specs": [
         "openspec/specs/shell/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -88,7 +88,7 @@
       "specs": [
         "openspec/specs/transactions/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -97,7 +97,7 @@
       "specs": [
         "openspec/specs/transactions/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -106,7 +106,7 @@
       "specs": [
         "openspec/specs/transactions/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -115,7 +115,7 @@
       "specs": [
         "openspec/specs/transactions/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -124,7 +124,7 @@
       "specs": [
         "openspec/specs/transactions/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -133,7 +133,7 @@
       "specs": [
         "openspec/specs/transactions/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -142,7 +142,7 @@
       "specs": [
         "openspec/specs/transactions/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -151,7 +151,7 @@
       "specs": [
         "openspec/specs/categories/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -160,7 +160,7 @@
       "specs": [
         "openspec/specs/categories/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -169,7 +169,7 @@
       "specs": [
         "openspec/specs/categories/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -178,7 +178,7 @@
       "specs": [
         "openspec/specs/categories/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -187,7 +187,7 @@
       "specs": [
         "openspec/specs/budget-limits/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -196,7 +196,7 @@
       "specs": [
         "openspec/specs/budget-limits/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -205,7 +205,7 @@
       "specs": [
         "openspec/specs/budget-limits/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -214,7 +214,7 @@
       "specs": [
         "openspec/specs/budget-limits/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -223,7 +223,7 @@
       "specs": [
         "openspec/specs/budget-limits/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -232,7 +232,7 @@
       "specs": [
         "openspec/specs/charts/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -241,7 +241,7 @@
       "specs": [
         "openspec/specs/charts/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -250,7 +250,7 @@
       "specs": [
         "openspec/specs/charts/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -259,7 +259,7 @@
       "specs": [
         "openspec/specs/charts/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -268,7 +268,7 @@
       "specs": [
         "openspec/specs/charts/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -277,7 +277,7 @@
       "specs": [
         "openspec/specs/fx/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -286,7 +286,7 @@
       "specs": [
         "openspec/specs/fx/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -295,7 +295,7 @@
       "specs": [
         "openspec/specs/fx/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -305,7 +305,7 @@
         "openspec/specs/budget-limits/spec.md",
         "openspec/specs/fx/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     },
@@ -314,17 +314,13 @@
       "specs": [
         "openspec/specs/fx/spec.md"
       ],
-      "planned": null,
+      "planned": true,
       "tests": [],
       "recordings": []
     }
   ],
   "failures": [],
   "warnings": [
-    {
-      "check": "plan-ownership",
-      "msg": "docs/mvp-capability-plan.md not found - ownership check skipped (expected before Phase 3; mandatory at --release)"
-    },
     {
       "check": "test-trace",
       "msg": "FR-SHELL-01 has no test annotated \"@trace FR-SHELL-01\""
