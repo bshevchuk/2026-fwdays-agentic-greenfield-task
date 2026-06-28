@@ -15,6 +15,20 @@ const eslintConfig = defineConfig([
   ]),
   ...nextVitals,
   ...nextTs,
+  // Allow the conventional _ prefix for intentionally-unused parameters
+  // (commonly used in stub/mock objects in test files).
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+    },
+  },
 ]);
 
 export default eslintConfig;

@@ -37,4 +37,57 @@ export const en = {
   CURRENCY_FIELD_LABEL: 'Currency',
   FOOTER_ATTRIBUTION: 'Exchange rates by frankfurter.app',
   FOOTER_ATTRIBUTION_URL: 'https://www.frankfurter.app',
+
+  // --- Transactions ---
+  // Form titles
+  TX_ADD_TITLE: 'Add transaction',
+  TX_EDIT_TITLE: 'Edit transaction',
+
+  // Form labels
+  TX_FORM_AMOUNT: 'Amount',
+  TX_FORM_CURRENCY: 'Currency',
+  TX_FORM_DATE: 'Date',
+  TX_FORM_CATEGORY: 'Category',
+  TX_FORM_TYPE: 'Type',
+  TX_FORM_NOTE: 'Note (optional)',
+
+  // Buttons
+  TX_ADD_BUTTON: 'Add transaction',
+  TX_SAVE: 'Save',
+  TX_CANCEL: 'Cancel',
+  TX_DELETE: 'Delete',
+
+  // Type labels
+  TX_TYPE_EXPENSE: 'Expense',
+  TX_TYPE_INCOME: 'Income',
+
+  // Filter labels
+  TX_FILTER_MONTH: 'Month',
+  TX_FILTER_CATEGORY: 'Category',
+  TX_FILTER_TYPE: 'Type',
+  TX_FILTER_ALL_CATEGORIES: 'All categories',
+  TX_FILTER_ALL_TYPES: 'All types',
+
+  // Delete confirmation
+  TX_DELETE_CONFIRM: 'Delete this transaction? This cannot be undone.',
+  TX_DELETE_CONFIRM_YES: 'Delete',
+  TX_DELETE_CONFIRM_NO: 'Cancel',
+
+  // Empty states
+  TX_EMPTY_FILTER: 'No transactions for this period.',
+
+  // Validation errors
+  TX_AMOUNT_REQUIRED: 'Amount is required',
+  TX_AMOUNT_NOT_NUMBER: 'Amount must be a number',
+  TX_AMOUNT_NOT_POSITIVE: 'Amount must be greater than zero',
+  TX_CURRENCY_REQUIRED: 'Currency is required',
+  TX_CURRENCY_INVALID: 'Currency must be a supported ISO 4217 code',
+  TX_DATE_REQUIRED: 'Date is required',
+  TX_DATE_INVALID: 'Date must be a valid date (YYYY-MM-DD)',
+  TX_CATEGORY_REQUIRED: 'Category is required',
+  TX_TYPE_INVALID: 'Type must be expense or income',
+  TX_NOTE_TOO_LONG: 'Note must be 1000 characters or fewer',
+  TX_NOT_FOUND: 'Transaction not found',
+  TX_SERVER_ERROR: 'A server error occurred. Please try again.',
+  TX_FX_FETCH_FAILED: 'Could not fetch exchange rate. Please try again.',
 } as const;

@@ -96,12 +96,12 @@ describe('002_categories.sql — default seed (FR-CAT-04)', () => {
   // -------------------------------------------------------------------------
   // Migration tracking
   // -------------------------------------------------------------------------
-  it('records exactly 2 entries in _migrations after both sql files are applied', () => {
+  it('records exactly 3 entries in _migrations after all sql files are applied', () => {
     runMigrations(db);
     const row = db
       .prepare('SELECT COUNT(*) AS n FROM _migrations')
       .get() as { n: number };
-    expect(row.n).toBe(2);
+    expect(row.n).toBe(3);
   });
 
   it('the second migration file is recorded as "002_categories.sql"', () => {

@@ -5,31 +5,21 @@
 
 ## Last Updated
 
-- **Date and time:** 2026-06-28 21:40 (Europe/Kyiv)
+- **Date and time:** 2026-06-28 23:00 (Europe/Kyiv)
 - **Current phase:** Phase 4 — slice delivery
-- **Active change:** add-categories (COMPLETE)
+- **Active change:** add-transactions (COMPLETE)
 - **Progress:** G0 complete (scaffold + loop). G1 complete (requirements signed off).
   Next.js 16 / React 19 / Tailwind 4 / shadcn/ui / better-sqlite3 / Vitest scaffolded.
   ADRs 0001–0004 written. Lint + build green.
-  add-categories slice implemented and all 46 new tests passing.
-  `002_categories.sql` migration applied; 7 default categories seeded.
-  Route Handlers `/api/categories` (GET, POST) and `/api/categories/[id]` (GET, PUT, DELETE) implemented.
-  Settings page at `/settings` with CategoryList, CategoryForm, DeleteCategoryButton.
-  Settings link added to TopBar.
-- **Next task:** add-fx slice (slice 2b), then add-transactions (slice 3).
+  add-categories slice implemented; `002_categories.sql` migration applied.
+  add-fx slice implemented; FX rate route, cache, and currency context in place.
+  add-transactions slice implemented: full CRUD for transactions, migration 003, domain layer,
+  Route Handlers, TransactionList/Form/Filters UI components. All 169 tests passing.
+- **Next task:** add-budget-limits (slice 4).
 
 ## Known Issues
 
-Three pre-existing shell tests (from the add-shell slice) conflict with the add-categories spec
-and will fail after 002_categories.sql is added. These are flagged for the next agent to fix:
-
-1. `lib/db/migrate.test.ts` — "records exactly one row in _migrations after first run" (expects 1, gets 2)
-2. `lib/db/migrate.test.ts` — "is idempotent — second call does not add a duplicate migration row" (expects 1, gets 2)
-3. `lib/db/repository.test.ts` — "returns an empty array when no categories have been inserted" (expects 0, gets 7)
-
-These tests were written for the shell when only 001_initial.sql existed. The add-categories
-spec mandates 002_categories.sql which seeds 7 rows. The tests need their assertions updated
-(e.g. `toBe(2)` and `toHaveLength(7)` respectively) to reflect the new baseline.
+None. All pre-existing test conflicts from prior slices have been resolved.
 
 ## Source Of Truth
 
@@ -44,9 +34,26 @@ spec mandates 002_categories.sql which seeds 7 rows. The tests need their assert
 
 ## OpenSpec Status
 
-- `openspec/changes/add-categories/` — implementation complete (tasks.md all ticked).
+- `openspec/changes/add-transactions/` — implementation complete (tasks.md ticked).
 
 ## Completed Changes
+
+- **add-transactions** — 2026-06-28 23:00 UTC+3 (Europe/Kyiv)
+  - `lib/db/migrations/003_transactions.sql` — full schema DROP + CREATE
+  - `lib/transactions/types.ts` — TransactionRow, CreateTransactionInput, UpdateTransactionInput, TransactionFilters
+  - `lib/transactions/validation.ts` — validateAmount, validateCurrency, validateDate, validateType, validateNote
+  - `lib/transactions/queries.ts` — SQL constants and dynamic builders
+  - `lib/transactions/service.ts` — listTransactions, createTransaction, updateTransaction, deleteTransaction
+  - `lib/db/repository.ts` — IRepository extended with all transaction CRUD methods
+  - `lib/db/adapters/sqlite.ts` — SqliteRepository implements all transaction methods
+  - `lib/i18n/en.ts` — all TX_* i18n strings added
+  - `app/api/transactions/route.ts` — GET (filtered list) + POST (create with FX rate fetch)
+  - `app/api/transactions/[id]/route.ts` — GET, PUT, DELETE
+  - `components/transactions/TransactionFilters.tsx`
+  - `components/transactions/TransactionForm.tsx`
+  - `components/transactions/TransactionList.tsx`
+  - `app/page.tsx` — unconditionally renders TransactionList (Client Component)
+  - `eslint.config.mjs` — added argsIgnorePattern: "^_" for unused stub params in tests
 
 - **add-categories** — 2026-06-28 21:40 UTC+3 (Europe/Kyiv)
   - `lib/db/migrations/002_categories.sql`

@@ -1,9 +1,10 @@
-import { getRepository } from '@/lib/db';
-import { EmptyState } from '@/components/EmptyState';
+// @trace FR-TX-01, FR-TX-02, FR-TX-06, FR-TX-07, FR-SHELL-03
+// Server Component — thin shell that renders TransactionList.
+// TransactionList (Client Component) fetches its own data and handles all
+// mutation state, including the empty-state CTA per design decision KD-8.
 
-export default async function Home() {
-  const repo = getRepository();
-  const count = repo.countTransactions();
-  if (count === 0) return <EmptyState />;
-  return <div>Transactions will render here</div>;
+import { TransactionList } from '@/components/transactions/TransactionList';
+
+export default function Home() {
+  return <TransactionList />;
 }

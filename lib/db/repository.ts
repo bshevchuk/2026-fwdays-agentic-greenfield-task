@@ -1,24 +1,31 @@
-// @trace FR-SHELL-01, FR-CAT-01, FR-CAT-02, FR-CAT-03, FR-CAT-04
+// @trace FR-SHELL-01, FR-CAT-01, FR-CAT-02, FR-CAT-03, FR-CAT-04, FR-TX-01, FR-TX-02, FR-TX-03, FR-TX-04, FR-TX-06, FR-TX-07
 import type {
   CategoryFullRow,
   CreateCategoryInput,
   UpdateCategoryInput,
 } from '@/lib/categories/types';
+import type {
+  TransactionRow,
+  CreateTransactionInput,
+  UpdateTransactionInput,
+  TransactionFilters,
+} from '@/lib/transactions/types';
 
-// Re-export for callers that imported CategoryRow by name from here.
-export type { CategoryFullRow };
-
-export interface TransactionRow {
-  id: number;
-  amount_cents: number;
-}
+// Re-export for callers that imported these types by name from here.
+export type { CategoryFullRow, TransactionRow };
 
 export interface IRepository {
   /** Health-check: returns true if the DB connection is alive. */
   ping(): boolean;
 
-  // --- Transactions (add-transactions slice will expand this) ---
+  // --- Transactions ---
   countTransactions(): number;
+  listTransactions(filters: TransactionFilters): TransactionRow[];
+  countFilteredTransactions(filters: Omit<TransactionFilters, 'page'>): number;
+  getTransaction(id: number): TransactionRow | undefined;
+  createTransaction(input: CreateTransactionInput): TransactionRow;
+  updateTransaction(id: number, fields: UpdateTransactionInput): TransactionRow | undefined;
+  deleteTransaction(id: number): boolean;
 
   // --- Categories ---
   listCategories(): CategoryFullRow[];
