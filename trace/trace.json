@@ -86,8 +86,7 @@
     {
       "id": "FR-TX-01",
       "specs": [
-        "openspec/specs/transactions/spec.md",
-        "openspec/changes/add-transactions/spec.md"
+        "openspec/specs/transactions/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -96,8 +95,7 @@
     {
       "id": "FR-TX-02",
       "specs": [
-        "openspec/specs/transactions/spec.md",
-        "openspec/changes/add-transactions/spec.md"
+        "openspec/specs/transactions/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -106,8 +104,7 @@
     {
       "id": "FR-TX-03",
       "specs": [
-        "openspec/specs/transactions/spec.md",
-        "openspec/changes/add-transactions/spec.md"
+        "openspec/specs/transactions/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -116,8 +113,7 @@
     {
       "id": "FR-TX-04",
       "specs": [
-        "openspec/specs/transactions/spec.md",
-        "openspec/changes/add-transactions/spec.md"
+        "openspec/specs/transactions/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -126,8 +122,7 @@
     {
       "id": "FR-TX-05",
       "specs": [
-        "openspec/specs/transactions/spec.md",
-        "openspec/changes/add-transactions/spec.md"
+        "openspec/specs/transactions/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -136,8 +131,7 @@
     {
       "id": "FR-TX-06",
       "specs": [
-        "openspec/specs/transactions/spec.md",
-        "openspec/changes/add-transactions/spec.md"
+        "openspec/specs/transactions/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -146,8 +140,7 @@
     {
       "id": "FR-TX-07",
       "specs": [
-        "openspec/specs/transactions/spec.md",
-        "openspec/changes/add-transactions/spec.md"
+        "openspec/specs/transactions/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -282,8 +275,7 @@
     {
       "id": "FR-FX-01",
       "specs": [
-        "openspec/specs/fx/spec.md",
-        "openspec/changes/add-transactions/spec.md"
+        "openspec/specs/fx/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -560,10 +552,6 @@
     {
       "check": "recording-evidence",
       "msg": "FR-FX-05 is not referenced by any recording manifest under docs/qa/"
-    },
-    {
-      "check": "active-changes",
-      "msg": "active change \"add-transactions\" is not archived"
     }
   ]
 }
