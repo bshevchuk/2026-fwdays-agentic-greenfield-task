@@ -30,3 +30,8 @@ obj/
 .next/
 *.tsbuildinfo
 next-env.d.ts
+
+# SQLite database files (local dev data; Vercel uses /tmp/budget.db)
+*.db
+*.db-shm
+*.db-wal
