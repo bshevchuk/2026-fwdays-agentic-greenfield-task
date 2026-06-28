@@ -275,8 +275,7 @@
     {
       "id": "FR-FX-01",
       "specs": [
-        "openspec/specs/fx/spec.md",
-        "openspec/changes/add-fx/spec.md"
+        "openspec/specs/fx/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -285,8 +284,7 @@
     {
       "id": "FR-FX-02",
       "specs": [
-        "openspec/specs/fx/spec.md",
-        "openspec/changes/add-fx/spec.md"
+        "openspec/specs/fx/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -295,8 +293,7 @@
     {
       "id": "FR-FX-03",
       "specs": [
-        "openspec/specs/fx/spec.md",
-        "openspec/changes/add-fx/spec.md"
+        "openspec/specs/fx/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -306,8 +303,7 @@
       "id": "FR-FX-04",
       "specs": [
         "openspec/specs/budget-limits/spec.md",
-        "openspec/specs/fx/spec.md",
-        "openspec/changes/add-fx/spec.md"
+        "openspec/specs/fx/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -316,8 +312,7 @@
     {
       "id": "FR-FX-05",
       "specs": [
-        "openspec/specs/fx/spec.md",
-        "openspec/changes/add-fx/spec.md"
+        "openspec/specs/fx/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -557,10 +552,6 @@
     {
       "check": "recording-evidence",
       "msg": "FR-FX-05 is not referenced by any recording manifest under docs/qa/"
-    },
-    {
-      "check": "active-changes",
-      "msg": "active change \"add-fx\" is not archived"
     }
   ]
 }
