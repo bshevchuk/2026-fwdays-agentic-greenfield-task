@@ -58,203 +58,262 @@
   "links": [
     {
       "id": "FR-SHELL-01",
-      "specs": [],
+      "specs": [
+        "openspec/specs/shell/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-SHELL-02",
-      "specs": [],
+      "specs": [
+        "openspec/specs/shell/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-SHELL-03",
-      "specs": [],
+      "specs": [
+        "openspec/specs/shell/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-TX-01",
-      "specs": [],
+      "specs": [
+        "openspec/specs/transactions/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-TX-02",
-      "specs": [],
+      "specs": [
+        "openspec/specs/transactions/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-TX-03",
-      "specs": [],
+      "specs": [
+        "openspec/specs/transactions/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-TX-04",
-      "specs": [],
+      "specs": [
+        "openspec/specs/transactions/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-TX-05",
-      "specs": [],
+      "specs": [
+        "openspec/specs/transactions/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-TX-06",
-      "specs": [],
+      "specs": [
+        "openspec/specs/transactions/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-TX-07",
-      "specs": [],
+      "specs": [
+        "openspec/specs/transactions/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CAT-01",
-      "specs": [],
+      "specs": [
+        "openspec/specs/categories/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CAT-02",
-      "specs": [],
+      "specs": [
+        "openspec/specs/categories/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CAT-03",
-      "specs": [],
+      "specs": [
+        "openspec/specs/categories/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CAT-04",
-      "specs": [],
+      "specs": [
+        "openspec/specs/categories/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-BUDGET-01",
-      "specs": [],
+      "specs": [
+        "openspec/specs/budget-limits/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-BUDGET-02",
-      "specs": [],
+      "specs": [
+        "openspec/specs/budget-limits/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-BUDGET-03",
-      "specs": [],
+      "specs": [
+        "openspec/specs/budget-limits/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-BUDGET-04",
-      "specs": [],
+      "specs": [
+        "openspec/specs/budget-limits/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-BUDGET-05",
-      "specs": [],
+      "specs": [
+        "openspec/specs/budget-limits/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CHART-01",
-      "specs": [],
+      "specs": [
+        "openspec/specs/charts/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CHART-02",
-      "specs": [],
+      "specs": [
+        "openspec/specs/charts/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CHART-03",
-      "specs": [],
+      "specs": [
+        "openspec/specs/charts/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CHART-04",
-      "specs": [],
+      "specs": [
+        "openspec/specs/charts/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-CHART-05",
-      "specs": [],
+      "specs": [
+        "openspec/specs/charts/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-FX-01",
-      "specs": [],
+      "specs": [
+        "openspec/specs/fx/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-FX-02",
-      "specs": [],
+      "specs": [
+        "openspec/specs/fx/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-FX-03",
-      "specs": [],
+      "specs": [
+        "openspec/specs/fx/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-FX-04",
-      "specs": [],
+      "specs": [
+        "openspec/specs/budget-limits/spec.md",
+        "openspec/specs/fx/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
     },
     {
       "id": "FR-FX-05",
-      "specs": [],
+      "specs": [
+        "openspec/specs/fx/spec.md"
+      ],
       "planned": null,
       "tests": [],
       "recordings": []
@@ -262,122 +321,6 @@
   ],
   "failures": [],
   "warnings": [
-    {
-      "check": "spec-mention",
-      "msg": "FR-SHELL-01 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-SHELL-02 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-SHELL-03 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-TX-01 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-TX-02 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-TX-03 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-TX-04 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-TX-05 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-TX-06 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-TX-07 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CAT-01 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CAT-02 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CAT-03 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CAT-04 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-BUDGET-01 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-BUDGET-02 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-BUDGET-03 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-BUDGET-04 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-BUDGET-05 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CHART-01 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CHART-02 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CHART-03 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CHART-04 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-CHART-05 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-FX-01 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-FX-02 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-FX-03 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-FX-04 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
-    {
-      "check": "spec-mention",
-      "msg": "FR-FX-05 is not cited by any spec under openspec/specs/ (no specs authored yet - expected before Phase 2)"
-    },
     {
       "check": "plan-ownership",
       "msg": "docs/mvp-capability-plan.md not found - ownership check skipped (expected before Phase 3; mandatory at --release)"
