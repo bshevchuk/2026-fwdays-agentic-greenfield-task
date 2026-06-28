@@ -25,3 +25,8 @@ venv/
 target/
 bin/
 obj/
+
+# Next.js
+.next/
+*.tsbuildinfo
+next-env.d.ts

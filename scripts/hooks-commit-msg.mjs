@@ -15,7 +15,10 @@ const staged = execSync("git diff --cached --name-only", { encoding: "utf8" })
   .filter(Boolean);
 const touchesFeatureCode = staged.some((f) => /^(app|lib|db|src)\//.test(f) && !/\.(test|spec)\./.test(f));
 
-if (!touchesFeatureCode) process.exit(0);
+// Chore/docs/scaffold commits are exempt (conventional commit prefixes)
+const isChore = /^(chore|docs|ci|style|build|test|refactor)(\(.+\))?:/m.test(msg);
+
+if (!touchesFeatureCode || isChore) process.exit(0);
 
 // Ids may be plain (FR-12) or categorized (FR-SHELL-01, NFR-A11Y-02).
 const hasRefs = /^Refs:\s*((FR|NFR|TC|BC|BUG)-(?:[A-Z0-9]+-)?\d+)(,\s*(FR|NFR|TC|BC|BUG)-(?:[A-Z0-9]+-)?\d+)*\s*$/m.test(msg);
