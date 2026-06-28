@@ -1,7 +1,14 @@
+'use client';
+// @trace FR-SHELL-01, FR-FX-04
+
 import Link from 'next/link';
 import { en } from '@/lib/i18n/en';
+import { useDisplayCurrency } from '@/lib/fx/currency-context';
 
 export function TopBar() {
+  const { displayCurrency, setDisplayCurrency, supportedCurrencies } =
+    useDisplayCurrency();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background dark:bg-background">
       <nav
@@ -19,14 +26,18 @@ export function TopBar() {
           <label htmlFor="display-currency" className="text-sm text-muted-foreground">
             {en.CURRENCY_SELECTOR_LABEL}
           </label>
-          {/* Placeholder: add-fx slice will wire onChange and populate options */}
           <select
             id="display-currency"
             name="display-currency"
-            defaultValue={en.CURRENCY_PLACEHOLDER}
+            value={displayCurrency}
+            onChange={(e) => setDisplayCurrency(e.target.value)}
             className="text-sm text-foreground bg-background border border-border rounded px-2 py-1 focus-visible:ring-2 focus-visible:ring-ring focus:outline-none"
           >
-            <option value={en.CURRENCY_PLACEHOLDER}>{en.CURRENCY_PLACEHOLDER}</option>
+            {supportedCurrencies.map((currency) => (
+              <option key={currency} value={currency}>
+                {currency}
+              </option>
+            ))}
           </select>
         </div>
       </nav>

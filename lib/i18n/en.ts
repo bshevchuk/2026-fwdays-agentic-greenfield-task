@@ -31,4 +31,10 @@ export const en = {
   CATEGORIES_DELETE_HAS_TRANSACTIONS:
     'Cannot delete a category that has associated transactions',
   CATEGORIES_NOT_FOUND: 'Category not found',
+
+  // --- FX ---
+  FX_RATE_FETCH_ERROR: 'Could not fetch exchange rate. Please try again.',
+  CURRENCY_FIELD_LABEL: 'Currency',
+  FOOTER_ATTRIBUTION: 'Exchange rates by frankfurter.app',
+  FOOTER_ATTRIBUTION_URL: 'https://www.frankfurter.app',
 } as const;
