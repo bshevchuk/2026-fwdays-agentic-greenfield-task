@@ -59,8 +59,7 @@
     {
       "id": "FR-SHELL-01",
       "specs": [
-        "openspec/specs/shell/spec.md",
-        "openspec/changes/add-shell/spec.md"
+        "openspec/specs/shell/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -69,8 +68,7 @@
     {
       "id": "FR-SHELL-02",
       "specs": [
-        "openspec/specs/shell/spec.md",
-        "openspec/changes/add-shell/spec.md"
+        "openspec/specs/shell/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -79,8 +77,7 @@
     {
       "id": "FR-SHELL-03",
       "specs": [
-        "openspec/specs/shell/spec.md",
-        "openspec/changes/add-shell/spec.md"
+        "openspec/specs/shell/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -555,10 +552,6 @@
     {
       "check": "recording-evidence",
       "msg": "FR-FX-05 is not referenced by any recording manifest under docs/qa/"
-    },
-    {
-      "check": "active-changes",
-      "msg": "active change \"add-shell\" is not archived"
     }
   ]
 }
