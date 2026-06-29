@@ -230,8 +230,7 @@
     {
       "id": "FR-CHART-01",
       "specs": [
-        "openspec/specs/charts/spec.md",
-        "openspec/changes/add-charts/spec.md"
+        "openspec/specs/charts/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -240,8 +239,7 @@
     {
       "id": "FR-CHART-02",
       "specs": [
-        "openspec/specs/charts/spec.md",
-        "openspec/changes/add-charts/spec.md"
+        "openspec/specs/charts/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -250,8 +248,7 @@
     {
       "id": "FR-CHART-03",
       "specs": [
-        "openspec/specs/charts/spec.md",
-        "openspec/changes/add-charts/spec.md"
+        "openspec/specs/charts/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -260,8 +257,7 @@
     {
       "id": "FR-CHART-04",
       "specs": [
-        "openspec/specs/charts/spec.md",
-        "openspec/changes/add-charts/spec.md"
+        "openspec/specs/charts/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -270,8 +266,7 @@
     {
       "id": "FR-CHART-05",
       "specs": [
-        "openspec/specs/charts/spec.md",
-        "openspec/changes/add-charts/spec.md"
+        "openspec/specs/charts/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -557,10 +552,6 @@
     {
       "check": "recording-evidence",
       "msg": "FR-FX-05 is not referenced by any recording manifest under docs/qa/"
-    },
-    {
-      "check": "active-changes",
-      "msg": "active change \"add-charts\" is not archived"
     }
   ]
 }
