@@ -41,6 +41,19 @@ function buildWhereClause(filters: {
 }
 
 /**
+ * Returns a non-paginated list query and its parameters (for charts / aggregations).
+ */
+export function buildListAllTransactionsQuery(filters: {
+  month?: string;
+  category_id?: number;
+  type?: string;
+}): { sql: string; params: (string | number)[] } {
+  const { whereClause, params } = buildWhereClause(filters);
+  const sql = `SELECT ${COLUMNS} FROM transactions ${whereClause} ORDER BY date ASC, id ASC`;
+  return { sql, params };
+}
+
+/**
  * Returns the full paginated list query and its parameters.
  */
 export function buildListTransactionsQuery(filters: {

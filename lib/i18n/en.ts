@@ -91,6 +91,15 @@ export const en = {
   TX_SERVER_ERROR: 'A server error occurred. Please try again.',
   TX_FX_FETCH_FAILED: 'Could not fetch exchange rate. Please try again.',
 
+  // --- Charts ---
+  CHART_DONUT_TITLE: 'Spending by Category',
+  CHART_BAR_TITLE: 'Income vs Expenses (12 months)',
+  CHART_DONUT_EMPTY: 'No spending data for this month',
+  CHART_INCOME_LABEL: 'Income',
+  CHART_EXPENSE_LABEL: 'Expenses',
+  CHART_MONTH_SELECTOR_LABEL: 'Select month',
+  CHART_TOOLTIP_AMOUNT: 'Amount',
+
   // --- Budget limits ---
   BUDGET_LIMIT_LABEL: 'Monthly budget limit',
   BUDGET_LIMIT_PLACEHOLDER: 'e.g. 500',

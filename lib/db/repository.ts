@@ -21,6 +21,7 @@ export interface IRepository {
   // --- Transactions ---
   countTransactions(): number;
   listTransactions(filters: TransactionFilters): TransactionRow[];
+  listAllTransactions(filters: Omit<TransactionFilters, 'page'>): TransactionRow[];
   countFilteredTransactions(filters: Omit<TransactionFilters, 'page'>): number;
   getTransaction(id: number): TransactionRow | undefined;
   createTransaction(input: CreateTransactionInput): TransactionRow;

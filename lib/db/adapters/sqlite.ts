@@ -22,6 +22,7 @@ import {
   SQL_CREATE_TRANSACTION,
   SQL_DELETE_TRANSACTION,
   buildListTransactionsQuery,
+  buildListAllTransactionsQuery,
   buildCountTransactionsQuery,
   buildTransactionUpdateQuery,
   buildTransactionUpdateParams,
@@ -52,6 +53,11 @@ export class SqliteRepository implements IRepository {
 
   listTransactions(filters: TransactionFilters): TransactionRow[] {
     const { sql, params } = buildListTransactionsQuery(filters);
+    return this.db.prepare(sql).all(...params) as TransactionRow[];
+  }
+
+  listAllTransactions(filters: Omit<TransactionFilters, 'page'>): TransactionRow[] {
+    const { sql, params } = buildListAllTransactionsQuery(filters);
     return this.db.prepare(sql).all(...params) as TransactionRow[];
   }
 
