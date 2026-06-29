@@ -5,18 +5,46 @@
 
 ## Last Updated
 
-- **Date and time:** 2026-06-29 11:45 (Europe/Kyiv)
-- **Current phase:** Phase 5 — Cross-cutting hardening
-- **Active change:** none (all 6 slices archived)
-- **Progress:** G0–G4 complete. All 6 feature slices delivered and archived.
-  188 tests passing (13 suites). Lint + build green.
+- **Date and time:** 2026-06-29 13:15 (Europe/Kyiv)
+- **Current phase:** Phase 7 — Global review + deploy (complete)
+- **Active change:** none — global-review archived
+- **Progress:** G0–G7 complete. All 6 feature slices + global review delivered and archived.
+  205 tests passing (14 suites). Lint + build green.
   Slices archived: add-shell, add-categories, add-fx, add-transactions,
-  add-budget-limits, add-charts (all under `openspec/archive/`).
-- **Next task:** Phase 5 — integration test layer + seed helper (no Playwright per TC-STACK-04).
+  add-budget-limits, add-charts, global-review (all under `openspec/archive/`).
+- **Next task:** Vercel deploy — set DATABASE_PATH=/tmp/budget.db env var, push to production.
 
 ## Known Issues
 
-None. All pre-existing test conflicts from prior slices have been resolved.
+**SEC-005 (low, accepted risk):** No rate limiting on `/api/fx/rates`. Mitigated by process-level
+cache. Acceptable for MVP with no auth; revisit with Vercel Edge middleware post-MVP.
+
+**Finding 4 (minor, accepted risk):** `budget_limit` stored as SQLite REAL (float) instead of
+integer cents. Changing to cents requires a migration and service refactor; deferred to post-MVP
+as the precision difference is negligible for user-entered budget limits.
+
+**Finding 5 (low confidence, accepted risk):** Migration 002 `ALTER TABLE` statements are not
+idempotent if the `_migrations` tracking table is manually cleared. Documented constraint;
+do not truncate `_migrations` in production.
+
+## Security Review Summary (2026-06-29)
+
+Severity | Count
+---------|------
+High     | 0
+Medium   | 0 (SEC-001 fixed)
+Low      | 2 remaining (SEC-005, SEC-006 PostCSS advisory — no runtime risk)
+
+All SEC-001 through SEC-004 confirmed findings fixed in commit `ece020a`.
+
+## Code Review Summary (2026-06-29)
+
+Severity | Count
+---------|------
+Major    | 0 (Finding 1 + 2 fixed)
+Minor    | 2 remaining (Finding 4 budget_limit REAL, Finding 5 migration idempotency)
+
+All other major and minor findings fixed in commit `ece020a`.
 
 ## Source Of Truth
 
@@ -27,37 +55,38 @@ None. All pre-existing test conflicts from prior slices have been resolved.
 5. `docs/mvp-capability-plan.md` — change sequence and scope.
 6. `openspec/project.md` + `openspec/specs/` — accepted behavior.
 7. `docs/adr/` — architecture decisions (ADR-0001 through ADR-0004 accepted).
-8. `docs/qa/` — QA proof pack and recordings (Phase 6).
+8. `docs/qa/` — QA proof pack (Phase 6).
+9. `openspec/archive/global-review/review-findings.json` — security review evidence.
+10. `docs/qa/code-review-findings.md` — code quality review evidence.
 
 ## OpenSpec Status
 
-- `openspec/changes/add-transactions/` — implementation complete (tasks.md ticked).
+All changes archived. No active changes.
+
+## Vercel Deploy Configuration
+
+```
+DATABASE_PATH=/tmp/budget.db
+NODE_ENV=production
+```
+
+Build command: `npm run build`  
+Output: `.next`  
+Install command: `npm install`
+
+Note: SQLite at `/tmp/budget.db` on Vercel is ephemeral (resets on cold start). Acceptable
+for MVP demo; persistent storage requires a volume or external DB in production.
 
 ## Completed Changes
 
-- **add-transactions** — 2026-06-28 23:00 UTC+3 (Europe/Kyiv)
-  - `lib/db/migrations/003_transactions.sql` — full schema DROP + CREATE
-  - `lib/transactions/types.ts` — TransactionRow, CreateTransactionInput, UpdateTransactionInput, TransactionFilters
-  - `lib/transactions/validation.ts` — validateAmount, validateCurrency, validateDate, validateType, validateNote
-  - `lib/transactions/queries.ts` — SQL constants and dynamic builders
-  - `lib/transactions/service.ts` — listTransactions, createTransaction, updateTransaction, deleteTransaction
-  - `lib/db/repository.ts` — IRepository extended with all transaction CRUD methods
-  - `lib/db/adapters/sqlite.ts` — SqliteRepository implements all transaction methods
-  - `lib/i18n/en.ts` — all TX_* i18n strings added
-  - `app/api/transactions/route.ts` — GET (filtered list) + POST (create with FX rate fetch)
-  - `app/api/transactions/[id]/route.ts` — GET, PUT, DELETE
-  - `components/transactions/TransactionFilters.tsx`
-  - `components/transactions/TransactionForm.tsx`
-  - `components/transactions/TransactionList.tsx`
-  - `app/page.tsx` — unconditionally renders TransactionList (Client Component)
-  - `eslint.config.mjs` — added argsIgnorePattern: "^_" for unused stub params in tests
+- **global-review** — 2026-06-29 13:15 UTC+3 (Europe/Kyiv)
+  - Security review: 0 high, 1 medium (fixed), 5 low (2 fixed, 2 accepted, 1 advisory)
+  - Code review: 2 major (fixed), 6 minor (4 fixed, 2 accepted)
+  - Commit: `ece020a` — fix(security+code): apply all confirmed review findings before deploy
 
+- **add-charts** — 2026-06-29 (committed previously)
+- **add-budget-limits** — 2026-06-29 (committed previously)
+- **add-transactions** — 2026-06-28 23:00 UTC+3 (Europe/Kyiv)
 - **add-categories** — 2026-06-28 21:40 UTC+3 (Europe/Kyiv)
-  - `lib/db/migrations/002_categories.sql`
-  - `lib/categories/types.ts`, `validation.ts`, `queries.ts`, `service.ts`
-  - `lib/db/repository.ts` extended; `lib/db/adapters/sqlite.ts` extended
-  - `lib/i18n/en.ts` — all category strings added
-  - `app/api/categories/route.ts`, `app/api/categories/[id]/route.ts`
-  - `components/categories/CategoryList.tsx`, `CategoryForm.tsx`, `DeleteCategoryButton.tsx`
-  - `app/settings/page.tsx`
-  - `components/TopBar.tsx` — Settings link added
+- **add-fx** — 2026-06-28 (committed previously)
+- **add-shell** — 2026-06-28 (committed previously)

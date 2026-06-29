@@ -1,0 +1,67 @@
+{
+  "scope": "global",
+  "baseRef": "HEAD~20",
+  "timestamp": "2026-06-29",
+  "confirmed": [
+    {
+      "id": "SEC-001",
+      "severity": "medium",
+      "file": "app/api/transactions/[id]/route.ts",
+      "line": 57,
+      "finding": "Mass-assignment: `amount_cents` is directly settable as a raw integer in the PUT body, bypassing the `validateAmount()` string-to-cents parser. When both `amount` and `amount_cents` are present in the same request body, `amount_cents` silently wins (lines 46-59 execute in order, both can set `fields.amount_cents`). The service layer validates `Number.isFinite && > 0`, but there is no upper-bound check: a caller can directly set `amount_cents` to `Number.MAX_SAFE_INTEGER` (9,007,199,254,740,991 cents = ~$90 trillion) and it will pass all validation and be persisted.",
+      "recommendation": "Remove the `amount_cents` direct-write branch (lines 57-59). Only the `amount` string path via `validateAmount()` should be accepted in the PUT body. If raw cents are ever needed by an internal caller, add a separate typed code path, not an open HTTP body field."
+    },
+    {
+      "id": "SEC-002",
+      "severity": "low",
+      "file": "lib/fx/fetcher.ts",
+      "line": 1,
+      "finding": "The file carries a code-comment warning (`// SERVER-ONLY`) but does not import the Next.js `server-only` package. There is no build-time enforcement preventing a developer from accidentally importing `fetchRateToUsd` inside a Client Component. If that happened, Next.js would attempt to bundle this module client-side, potentially causing process.env references to resolve as `undefined` and leaking the API URL structure. The current build is clean (confirmed by grep of `.next/static/`), but the guard is purely advisory.",
+      "recommendation": "Add `import 'server-only';` as the first line of `lib/fx/fetcher.ts`. This causes a build error if the module is accidentally imported from a Client Component, giving a hard guarantee aligned with TC-FX-01."
+    },
+    {
+      "id": "SEC-003",
+      "severity": "low",
+      "file": "app/api/charts/data/route.ts",
+      "line": 55,
+      "finding": "User-supplied `rawCurrency` is interpolated verbatim into the JSON error response: `{ error: \\`Unsupported currency: ${rawCurrency}\\` }`. In a pure JSON API there is no XSS risk, but the pattern echoes arbitrary attacker-controlled strings back to any downstream consumer of the API. If logging infrastructure or a future UI ever renders this field without escaping, the reflected value could be abused.",
+      "recommendation": "Return a static error string instead: `{ error: 'Unsupported currency code' }`. The caller already knows what it sent; the reflection adds no user value."
+    },
+    {
+      "id": "SEC-004",
+      "severity": "low",
+      "file": "app/api/transactions/route.ts",
+      "line": 114,
+      "finding": "When `category_id` in a POST body refers to a non-existent category, SQLite throws `SQLITE_CONSTRAINT` (FK violation) because `foreign_keys = ON` is set. The service does not catch FK errors for this field, so the exception propagates to the route handler's outer catch and returns `500 { error: 'Internal error' }` instead of `422 { error: '<user-friendly message>' }`. This violates the correctness rule that user input errors must return 422, and reveals to callers that the category ID is invalid via the status code difference.",
+      "recommendation": "Either: (a) validate that `category_id` refers to an existing category in the route handler or service before the DB insert, or (b) catch `SQLITE_CONSTRAINT` errors in `createTransaction` service and map them to a `VALIDATION_ERROR` result, similar to how the category service handles `SQLITE_CONSTRAINT_UNIQUE`."
+    },
+    {
+      "id": "SEC-005",
+      "severity": "low",
+      "file": "app/api/fx/rates/route.ts",
+      "line": 12,
+      "finding": "No rate limiting is applied to the `/api/fx/rates` Route Handler. Each cache miss triggers an outbound HTTP request to frankfurter.app. An unauthenticated attacker can enumerate all 30 supported currencies in rapid succession to exhaust the in-memory rate cache (which resets on each process restart), causing sustained outbound traffic and potentially hitting any upstream rate limit on frankfurter.app. This is a no-auth application so IP-based rate limiting is the only realistic mitigation.",
+      "recommendation": "Add a server-side in-memory rate limiter (e.g., a sliding-window counter keyed by IP from `x-forwarded-for`) on the `/api/fx/rates` route, or rely on Vercel's Edge rate limiting. Alternatively, pre-warm all 30 currency rates at startup and refresh on a schedule, making per-request fetches unnecessary."
+    },
+    {
+      "id": "SEC-006",
+      "severity": "low",
+      "file": "package.json",
+      "line": 1,
+      "finding": "`npm audit` reports 2 moderate-severity vulnerabilities: `postcss <8.5.10` (GHSA-qx2v-qp2m-jg93 — XSS via unescaped `</style>` in CSS stringify output) bundled inside `next@16.2.9`. This is a build-tool vulnerability in PostCSS's CSS stringify path. Exploitability requires attacker-controlled CSS to pass through the PostCSS build pipeline, which is not a condition present in this project. Risk is low-to-negligible at runtime, but the advisory should be tracked.",
+      "recommendation": "Monitor for a Next.js release that upgrades its bundled PostCSS to >=8.5.10. The suggested `npm audit fix --force` would downgrade Next.js to 9.3.3 (breaking), which is not appropriate. Track the advisory; no immediate action needed for deploy."
+    }
+  ],
+  "passed": [
+    "SQL injection: all queries use parameterised better-sqlite3 statements (.prepare().get/run/all). Dynamic UPDATE builders (buildUpdateQuery, buildTransactionUpdateQuery) construct SET clauses exclusively from hard-coded allow-lists ('name','icon','color','budget_limit' and 'amount_cents','currency','date','category_id','type','note') — user input never reaches column name positions.",
+    "Secrets hygiene: no API keys, passwords, or tokens found in source files or git history. .env.local is gitignored (.env.*). .env.example contains only placeholder/documentation values (the frankfurter.app URL is public and keyless by design). No NEXT_PUBLIC_ prefixed vars found, so no secrets are forced into the client bundle.",
+    "FX URL client bundle (TC-FX-01): grep of .next/static/ for 'api.frankfurter' returns zero hits. The fetcher.ts module is only imported from the server-side /api/fx/rates Route Handler; the attribution URL (https://www.frankfurter.app) that appears in the bundle is the website homepage for footer display, not the API endpoint.",
+    "Security headers: next.config.ts sets X-Content-Type-Options: nosniff, X-Frame-Options: DENY, and Referrer-Policy: strict-origin-when-cross-origin on all routes via the headers() callback. poweredByHeader: false suppresses X-Powered-By. CSP is absent (noted as acceptable for MVP).",
+    "Open redirect / SSRF: the FX base URL is hardcoded in fetcher.ts (with FX_API_BASE_URL env override for test mocking only, not user-controlled). The currency parameter interpolated into the URL is validated against SUPPORTED_CURRENCIES before reaching fetchRateToUsd, preventing SSRF via currency injection.",
+    "No-auth design confirmed: no auth guards exist (by design). No PII is stored — only transaction amounts, dates, categories, and optional short notes. All data belongs to the single-user context. No sensitive fields such as SSN, email, or passwords are present in any schema.",
+    "Route handler error surfaces: all seven Route Handlers (transactions GET/POST, transactions/[id] GET/PUT/DELETE, categories GET/POST, categories/[id] GET/PUT/DELETE, categories/[id]/limit PUT, fx/rates GET, charts/data GET) wrap all logic in try/catch. Errors log to stderr only; clients receive 'Internal error' with no stack traces.",
+    "Input validation completeness: amount validated as positive via validateAmount() with decimal-comma support; currency validated against SUPPORTED_CURRENCIES enum; date validated as ISO YYYY-MM-DD; type must be 'expense'|'income'; note validated at service layer (<=1000 chars); budget_limit validated as null or positive finite number; icon validated against ALLOWED_ICONS allow-list; color validated as /^#[0-9a-fA-F]{6}$/.",
+    "Foreign key constraints enforced: lib/db/client.ts sets PRAGMA foreign_keys = ON on every connection, so SQLite-level FK constraints on transactions.category_id ARE enforced at the database layer.",
+    "SQLite database files (.db, .db-shm, .db-wal) are gitignored and not committed to the repository."
+  ]
+}
