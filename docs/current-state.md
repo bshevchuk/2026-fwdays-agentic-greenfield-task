@@ -5,17 +5,14 @@
 
 ## Last Updated
 
-- **Date and time:** 2026-06-28 23:00 (Europe/Kyiv)
-- **Current phase:** Phase 4 — slice delivery
-- **Active change:** add-transactions (COMPLETE)
-- **Progress:** G0 complete (scaffold + loop). G1 complete (requirements signed off).
-  Next.js 16 / React 19 / Tailwind 4 / shadcn/ui / better-sqlite3 / Vitest scaffolded.
-  ADRs 0001–0004 written. Lint + build green.
-  add-categories slice implemented; `002_categories.sql` migration applied.
-  add-fx slice implemented; FX rate route, cache, and currency context in place.
-  add-transactions slice implemented: full CRUD for transactions, migration 003, domain layer,
-  Route Handlers, TransactionList/Form/Filters UI components. All 169 tests passing.
-- **Next task:** add-budget-limits (slice 4).
+- **Date and time:** 2026-06-29 11:45 (Europe/Kyiv)
+- **Current phase:** Phase 5 — Cross-cutting hardening
+- **Active change:** none (all 6 slices archived)
+- **Progress:** G0–G4 complete. All 6 feature slices delivered and archived.
+  188 tests passing (13 suites). Lint + build green.
+  Slices archived: add-shell, add-categories, add-fx, add-transactions,
+  add-budget-limits, add-charts (all under `openspec/archive/`).
+- **Next task:** Phase 5 — integration test layer + seed helper (no Playwright per TC-STACK-04).
 
 ## Known Issues
 
