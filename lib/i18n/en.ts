@@ -111,4 +111,9 @@ export const en = {
   BUDGET_OF_LIMIT: 'of',
   BUDGET_NO_LIMIT: 'No limit set',
   BUDGET_DASHBOARD_TITLE: 'Budget Overview',
+
+  // --- Generic UI ---
+  LOADING: 'Loading...',
+  CATEGORIES_EMPTY: 'No categories yet.',
+  TX_CURRENCY_NO_RESULTS: 'No results',
 } as const;

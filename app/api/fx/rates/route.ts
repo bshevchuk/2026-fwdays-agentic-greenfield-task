@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
         { status: 502 },
       );
     }
-    console.error('[fx/rates] Unexpected error:', err);
+    process.stderr.write(`[fx/rates] Unexpected error: ${String(err)}\n`);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

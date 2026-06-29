@@ -200,7 +200,7 @@ export function TransactionForm({
             {currencySearch && !currency && (
               <div className="border border-input rounded-md bg-background shadow-md max-h-40 overflow-y-auto">
                 {filteredCurrencies.length === 0 ? (
-                  <p className="px-3 py-2 text-sm text-muted-foreground">No results</p>
+                  <p className="px-3 py-2 text-sm text-muted-foreground">{en.TX_CURRENCY_NO_RESULTS}</p>
                 ) : (
                   filteredCurrencies.map((c) => (
                     <button

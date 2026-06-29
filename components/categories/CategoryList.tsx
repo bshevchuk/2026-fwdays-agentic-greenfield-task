@@ -60,7 +60,7 @@ export function CategoryList({ initialCategories }: CategoryListProps) {
       <ul className="divide-y divide-border rounded border border-border">
         {categories.length === 0 && (
           <li className="px-4 py-6 text-center text-sm text-muted-foreground">
-            No categories yet.
+            {en.CATEGORIES_EMPTY}
           </li>
         )}
         {categories.map((cat) => (

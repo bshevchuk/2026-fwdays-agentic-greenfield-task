@@ -128,6 +128,9 @@ export function deleteCategory(
   repo: IRepository,
   id: number,
 ): Result<{ deleted: boolean }> {
+  if (!repo.getCategory(id)) {
+    return err('NOT_FOUND', en.CATEGORIES_NOT_FOUND);
+  }
   const count = repo.countTransactionsByCategory(id);
   if (count > 0) {
     return err('HAS_TRANSACTIONS', en.CATEGORIES_DELETE_HAS_TRANSACTIONS);

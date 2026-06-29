@@ -52,7 +52,7 @@ export async function GET(request: NextRequest) {
     const currency = rawCurrency.toUpperCase();
     if (!(SUPPORTED_CURRENCIES as readonly string[]).includes(currency)) {
       return NextResponse.json(
-        { error: `Unsupported currency: ${rawCurrency}` },
+        { error: 'Unsupported currency code' },
         { status: 422 },
       );
     }

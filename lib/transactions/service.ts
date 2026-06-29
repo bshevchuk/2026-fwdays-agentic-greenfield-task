@@ -60,8 +60,16 @@ export function createTransaction(
     return err('VALIDATION_ERROR', en.TX_NOTE_TOO_LONG);
   }
 
-  const row = repo.createTransaction(input);
-  return ok(row);
+  try {
+    const row = repo.createTransaction(input);
+    return ok(row);
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : String(e);
+    if (msg.includes('FOREIGN KEY constraint failed')) {
+      return err('VALIDATION_ERROR', en.TX_CATEGORY_REQUIRED);
+    }
+    throw e;
+  }
 }
 
 // ---------------------------------------------------------------------------

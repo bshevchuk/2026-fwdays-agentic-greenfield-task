@@ -10,9 +10,6 @@ export const SQL_GET_CATEGORY =
 export const SQL_CREATE_CATEGORY =
   'INSERT INTO categories (name, icon, color) VALUES (?, ?, ?)';
 
-export const SQL_GET_CATEGORY_BY_ID =
-  'SELECT id, name, icon, color, budget_limit FROM categories WHERE id = ?';
-
 export const SQL_DELETE_CATEGORY = 'DELETE FROM categories WHERE id = ?';
 
 export const SQL_COUNT_TRANSACTIONS_BY_CATEGORY =

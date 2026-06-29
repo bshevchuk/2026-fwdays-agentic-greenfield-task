@@ -89,6 +89,8 @@ export function CategoryForm({ initial, onSave, onCancel }: CategoryFormProps) {
         if (!limitRes.ok) {
           const limitBody = (await limitRes.json()) as { error?: string };
           setLimitError(limitBody.error ?? 'Unexpected error setting limit');
+          // Category was created — register it so UI state is consistent
+          onSave(saved);
           return;
         }
         const updatedWithLimit = (await limitRes.json()) as CategoryFullRow;

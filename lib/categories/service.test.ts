@@ -204,9 +204,18 @@ describe('updateCategory', () => {
 // ---------------------------------------------------------------------------
 // deleteCategory (FR-CAT-03)
 // ---------------------------------------------------------------------------
+const existingCategory: CategoryFullRow = { id: 1, name: 'Food', icon: 'utensils', color: '#ef4444', budget_limit: null };
+
 describe('deleteCategory', () => {
+  it('returns { ok: false, code: NOT_FOUND } when category does not exist', () => {
+    const repo = createMockRepo({ getCategory: () => undefined });
+    const result = deleteCategory(repo as never, 99);
+    expect(result).toMatchObject({ ok: false, code: 'NOT_FOUND' });
+  });
+
   it('returns { ok: true } when category has zero associated transactions', () => {
     const repo = createMockRepo({
+      getCategory: () => existingCategory,
       countTransactionsByCategory: () => 0,
       deleteCategory: () => true,
     });
@@ -216,6 +225,7 @@ describe('deleteCategory', () => {
 
   it('returns { ok: false, code: HAS_TRANSACTIONS } when category has 3 transactions', () => {
     const repo = createMockRepo({
+      getCategory: () => existingCategory,
       countTransactionsByCategory: () => 3,
     });
     const result = deleteCategory(repo as never, 1);
@@ -224,6 +234,7 @@ describe('deleteCategory', () => {
 
   it('returns { ok: false, code: HAS_TRANSACTIONS } when category has exactly 1 transaction', () => {
     const repo = createMockRepo({
+      getCategory: () => existingCategory,
       countTransactionsByCategory: () => 1,
     });
     const result = deleteCategory(repo as never, 1);
@@ -233,6 +244,7 @@ describe('deleteCategory', () => {
   it('does not call repo.deleteCategory when transactions exist', () => {
     let deleteCalled = false;
     const repo = createMockRepo({
+      getCategory: () => existingCategory,
       countTransactionsByCategory: () => 2,
       deleteCategory: () => {
         deleteCalled = true;

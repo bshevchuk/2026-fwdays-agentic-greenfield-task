@@ -1,7 +1,5 @@
 // @trace FR-FX-01, FR-FX-02
-// SERVER-ONLY — never import this from a Client Component.
-// TC-FX-01: the frankfurter.app URL must never appear in the client bundle.
-
+import 'server-only';
 import { FxFetchError } from './errors';
 
 /**

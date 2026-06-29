@@ -69,7 +69,7 @@ export function BudgetDashboard() {
     return (
       <section aria-label={en.BUDGET_DASHBOARD_TITLE} className="mb-8">
         <h2 className="text-lg font-semibold mb-4">{en.BUDGET_DASHBOARD_TITLE}</h2>
-        <p className="text-sm text-muted-foreground">Loading...</p>
+        <p className="text-sm text-muted-foreground">{en.LOADING}</p>
       </section>
     );
   }

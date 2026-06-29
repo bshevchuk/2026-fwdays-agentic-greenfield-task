@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     const repo = getRepository();
     const result = createCategory(repo, body);
     if (!result.ok) {
-      const status = result.code === 'DUPLICATE_NAME' ? 422 : 422;
+      const status = result.code === 'DUPLICATE_NAME' ? 409 : 422;
       return NextResponse.json({ error: result.error }, { status });
     }
     return NextResponse.json(result.data, { status: 201 });

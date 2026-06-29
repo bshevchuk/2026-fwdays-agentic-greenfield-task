@@ -54,10 +54,6 @@ export async function PUT(request: Request, context: RouteContext) {
       fields.amount_cents = amountResult.cents!;
     }
 
-    if ('amount_cents' in body) {
-      fields.amount_cents = Number(body.amount_cents);
-    }
-
     if ('currency' in body) {
       const currency = String(body.currency ?? '');
       if (!validateCurrency(currency)) {
