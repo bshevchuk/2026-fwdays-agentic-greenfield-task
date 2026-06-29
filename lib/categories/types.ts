@@ -17,4 +17,5 @@ export interface UpdateCategoryInput {
   name?: string;
   icon?: string;
   color?: string;
+  budget_limit?: number | null;
 }

@@ -24,7 +24,7 @@ export const SQL_COUNT_TRANSACTIONS_BY_CATEGORY =
  * Returns null when no valid fields are supplied.
  */
 export function buildUpdateQuery(fields: Record<string, unknown>): string | null {
-  const ALLOWED = ['name', 'icon', 'color'] as const;
+  const ALLOWED = ['name', 'icon', 'color', 'budget_limit'] as const;
   const setClauses = ALLOWED.filter((k) => k in fields).map((k) => `${k} = ?`);
   if (setClauses.length === 0) return null;
   return `UPDATE categories SET ${setClauses.join(', ')} WHERE id = ?`;
@@ -38,7 +38,7 @@ export function buildUpdateParams(
   id: number,
   fields: Record<string, unknown>,
 ): unknown[] {
-  const ALLOWED = ['name', 'icon', 'color'] as const;
+  const ALLOWED = ['name', 'icon', 'color', 'budget_limit'] as const;
   const values = ALLOWED.filter((k) => k in fields).map((k) => fields[k]);
   return [...values, id];
 }

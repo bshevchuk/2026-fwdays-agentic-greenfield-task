@@ -90,4 +90,16 @@ export const en = {
   TX_NOT_FOUND: 'Transaction not found',
   TX_SERVER_ERROR: 'A server error occurred. Please try again.',
   TX_FX_FETCH_FAILED: 'Could not fetch exchange rate. Please try again.',
+
+  // --- Budget limits ---
+  BUDGET_LIMIT_LABEL: 'Monthly budget limit',
+  BUDGET_LIMIT_PLACEHOLDER: 'e.g. 500',
+  BUDGET_LIMIT_INVALID: 'Budget limit must be a positive number',
+  BUDGET_STATUS_OK: 'On track',
+  BUDGET_STATUS_WARNING: 'Approaching limit',
+  BUDGET_STATUS_OVER: 'Over budget',
+  BUDGET_SPEND_LABEL: 'Spent this month',
+  BUDGET_OF_LIMIT: 'of',
+  BUDGET_NO_LIMIT: 'No limit set',
+  BUDGET_DASHBOARD_TITLE: 'Budget Overview',
 } as const;
