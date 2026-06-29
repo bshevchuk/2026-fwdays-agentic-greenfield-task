@@ -185,7 +185,8 @@
     {
       "id": "FR-BUDGET-01",
       "specs": [
-        "openspec/specs/budget-limits/spec.md"
+        "openspec/specs/budget-limits/spec.md",
+        "openspec/changes/add-budget-limits/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -194,7 +195,8 @@
     {
       "id": "FR-BUDGET-02",
       "specs": [
-        "openspec/specs/budget-limits/spec.md"
+        "openspec/specs/budget-limits/spec.md",
+        "openspec/changes/add-budget-limits/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -203,7 +205,8 @@
     {
       "id": "FR-BUDGET-03",
       "specs": [
-        "openspec/specs/budget-limits/spec.md"
+        "openspec/specs/budget-limits/spec.md",
+        "openspec/changes/add-budget-limits/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -212,7 +215,8 @@
     {
       "id": "FR-BUDGET-04",
       "specs": [
-        "openspec/specs/budget-limits/spec.md"
+        "openspec/specs/budget-limits/spec.md",
+        "openspec/changes/add-budget-limits/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -221,7 +225,8 @@
     {
       "id": "FR-BUDGET-05",
       "specs": [
-        "openspec/specs/budget-limits/spec.md"
+        "openspec/specs/budget-limits/spec.md",
+        "openspec/changes/add-budget-limits/spec.md"
       ],
       "planned": true,
       "tests": [],
@@ -552,6 +557,10 @@
     {
       "check": "recording-evidence",
       "msg": "FR-FX-05 is not referenced by any recording manifest under docs/qa/"
+    },
+    {
+      "check": "active-changes",
+      "msg": "active change \"add-budget-limits\" is not archived"
     }
   ]
 }
