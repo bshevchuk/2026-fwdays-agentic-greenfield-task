@@ -40,7 +40,7 @@ export const cases: EvalCase[] = [
       'CRITICAL: HTTP status is 200, not 500',
       'CRITICAL: response body has a "donut" field that is an array (may be empty)',
       'CRITICAL: response body has a "bar" field that is an array of exactly 12 entries',
-      'every entry in the bar array has a "month" string field (YYYY-MM format)',
+      'every entry in the bar array has a "month" string field (human-readable, e.g. "Jun 2026") and a "monthKey" field (YYYY-MM for sorting)',
       'every entry in the bar array has an "income" numeric field',
       'every entry in the bar array has an "expense" numeric field',
       'no error field is present in the response body',

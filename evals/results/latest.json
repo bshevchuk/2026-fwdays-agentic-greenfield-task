@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-06-29",
+  "dimensions": {
+    "correctness": 96,
+    "api-contract": 97,
+    "usability-clarity": 0
+  },
+  "cases": [
+    { "id": "eval-shell-empty-state-clarity", "dimension": "usability-clarity", "score": 0, "pass": false },
+    { "id": "eval-shell-empty-state-console-silence", "dimension": "usability-clarity", "score": 0, "pass": false },
+    { "id": "eval-fx-convert-same-currency", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-fx-convert-usd-pivot", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-fx-error-missing-rate", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-budget-status-boundary-warning", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-budget-status-boundary-over", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-budget-status-income-exclusion", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-budget-status-empty", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-charts-bar-twelve-months", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-charts-no-live-fx", "dimension": "correctness", "score": 100, "pass": true },
+    { "id": "eval-tx-api-empty-list", "dimension": "api-contract", "score": 95, "pass": true },
+    { "id": "eval-tx-validation-error-surface", "dimension": "api-contract", "score": 100, "pass": true },
+    { "id": "eval-tx-api-filter-by-month", "dimension": "api-contract", "score": 95, "pass": true },
+    { "id": "eval-charts-api-empty-state", "dimension": "api-contract", "score": 100, "pass": true }
+  ],
+  "overall": 85
+}

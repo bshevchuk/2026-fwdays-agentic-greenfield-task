@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-06-29",
+  "cases": [
+    { "id": "eval-shell-empty-state-clarity", "score": 0, "pass": false, "note": "placeholder produce()" },
+    { "id": "eval-shell-empty-state-console-silence", "score": 0, "pass": false, "note": "placeholder produce()" },
+    { "id": "eval-fx-convert-same-currency", "score": 100, "pass": true },
+    { "id": "eval-fx-convert-usd-pivot", "score": 100, "pass": true },
+    { "id": "eval-fx-error-missing-rate", "score": 100, "pass": true },
+    { "id": "eval-budget-status-boundary-warning", "score": 100, "pass": true },
+    { "id": "eval-budget-status-boundary-over", "score": 100, "pass": true },
+    { "id": "eval-budget-status-income-exclusion", "score": 100, "pass": true },
+    { "id": "eval-budget-status-empty", "score": 100, "pass": true },
+    { "id": "eval-tx-api-empty-list", "score": 95, "pass": true },
+    { "id": "eval-tx-validation-error-surface", "score": 100, "pass": true },
+    { "id": "eval-tx-api-filter-by-month", "score": 95, "pass": true },
+    { "id": "eval-charts-api-empty-state", "score": 100, "pass": true, "note": "rubric corrected: month=human-readable, monthKey=YYYY-MM per types.ts" },
+    { "id": "eval-charts-bar-twelve-months", "score": 100, "pass": true },
+    { "id": "eval-charts-no-live-fx", "score": 100, "pass": true }
+  ],
+  "overall": 85,
+  "passed": 13,
+  "failed": 2,
+  "failedIds": ["eval-shell-empty-state-clarity", "eval-shell-empty-state-console-silence"]
+}
